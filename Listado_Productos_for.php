@@ -67,23 +67,23 @@ $aProductos[] = array(
                     </thead>
                     <tbody>
                         <?php
-                        $contador = 0;
-                        while ($contador < count($aProductos)) {
-
-                        ?>
+                        
+                        for ($i=0; $i <count($aProductos) ; $i++) { 
+                         ?>   
                             <tr>
-                                <td><?php echo $aProductos[$contador]["nombre"] ?></td>
-                                <td> <?php echo $aProductos[$contador]["marca"] ?>< /td>
-                                <td><?php echo $aProductos[$contador]["modelo"] ?></td>
-                                <td><?php echo $aProductos[$contador]["stock"] == 0 ? "No hay stock" : ($aProductos[0]["stock"] > 10 ? "Hay stock" : "Poco stock") ?> </td>
-                                <td>$<?php echo $aProductos[$contador]["precio"] ?></td>
+                                <td><?php echo $aProductos[$i]["nombre"] ?></td>
+                                <td> <?php echo $aProductos[$i]["marca"] ?>< /td>
+                                <td><?php echo $aProductos[$i]["modelo"] ?></td>
+                                <td><?php echo $aProductos[$i]["stock"] == 0 ? "No hay stock" : ($aProductos[0]["stock"] > 10 ? "Hay stock" : "Poco stock") ?> </td>
+                                <td>$<?php echo $aProductos[$i]["precio"] ?></td>
                                 <td><button class=" btn-primary  m-2">Comprar</button></td>
                             </tr>
                         <?php
-                            $contador++;
                         }
-
                         ?>
+                       
+
+                        
                     </tbody>
 
                 </table>
