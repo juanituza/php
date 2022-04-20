@@ -101,14 +101,15 @@ $aProductos[] = array(
         </div>
         <div class="row">
             <div class="col-12">
-                <h2>El subtotal es:
-                    <?php
-                    $subTotal = 0;
-                    for ($i = 0; $i < count($aProductos); $i++) {
-                        $subTotal = $subTotal + $aProductos[$i]["precio"];
-                    }
-                    echo $subTotal;
-                    ?>
+
+                <?php
+                $subTotal = 0;
+                for ($i = 0; $i < count($aProductos); $i++) {
+                    $subTotal = $subTotal + $aProductos[$i]["precio"];
+                }
+                ?>
+                <h2>
+                    El subtotal es: $<?php echo $subTotal; ?>
                 </h2>
             </div>
         </div>
