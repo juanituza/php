@@ -31,7 +31,7 @@ $aPacientes[] = array(
 );
 
 $aNotas=  array(9,8,9.5,4,7,8);
-$aEmpleados = array("gardella","mc kenna","vazquez","marioni","viegas","roche","villatarco");
+$aEmpleados = array("gardella","mc kenna","vazquez","marioni","viegas","roche","villatarco","santillan","abubdize");
 
 
 
@@ -40,7 +40,7 @@ function contar ($aPaciente){
     foreach ($aPaciente as $item) {
          $contador++;
     }
-    return  $contador;
+    return $contador;
 
      
 
