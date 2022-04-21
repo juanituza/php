@@ -22,6 +22,16 @@
         <p class="element text-element">ho-la </p>
     </div>
 
+    <?php
+    function saludar($nombre="Juan" , $apellido="")
+    {
+        return "Hola $nombre $apellido ";
+    }
+    echo saludar("Luciana")."<br>";
+    
+    echo saludar();
+
+    ?>
 
 </body>
 
