@@ -58,7 +58,6 @@ $aProductos[] = array(
         <div class="row">
 
             <div class="col-12">
-
                 <table class="table-hover border table">
                     <thead>
 
@@ -79,7 +78,7 @@ $aProductos[] = array(
                         ?>
                             <tr>
                                 <td><?php echo $aProductos[$i]["nombre"] ?></td>
-                                <td> <?php echo $aProductos[$i]["marca"] ?>< /td>
+                                <td> <?php echo $aProductos[$i]["marca"] ?></td>
                                 <td><?php echo $aProductos[$i]["modelo"] ?></td>
                                 <td><?php echo $aProductos[$i]["stock"] == 0 ? "No hay stock" : ($aProductos[0]["stock"] > 10 ? "Hay stock" : "Poco stock") ?> </td>
                                 <td>$<?php echo $aProductos[$i]["precio"] ?></td>
