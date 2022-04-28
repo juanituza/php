@@ -14,28 +14,26 @@ $aPacientes[] = array(
     "dni" => "23.684.385",
     "nombre" => "Gonzalo Bustamante",
     "edad" => 66,
-    "peso" => 79,
+    "peso" => 79
 );
 $aPacientes[] = array(
     "dni" => "23.684.385",
     "nombre" => "Juan Irraola",
     "edad" => 28,
-    "peso" => 95,
+    "peso" => 95
 );
 $aPacientes[] = array(
     "dni" => "36.630.478",
     "nombre" => "Beatriz Ocampo",
     "edad" => 50,
-    "peso" => 85,
+    "peso" => 85
 
 );
-
-
 
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
@@ -65,7 +63,7 @@ $aPacientes[] = array(
                         </tr>
                     </thead>
                     <tbody>
-                        <?php foreach ($aPacientes as $pacientes => $paciente) { ?>
+                        <?php foreach ($aPacientes as $paciente) { ?>
                             <tr>
                                 <td><?php echo $paciente["dni"];  ?></td>
                                 <td><?php echo $paciente["nombre"];  ?></td>
@@ -78,16 +76,6 @@ $aPacientes[] = array(
                         }
                         ?>
                     </tbody>
-
-
-
-
-
-
-
-
-
-                    
                 </table>
             </div>
         </div>
