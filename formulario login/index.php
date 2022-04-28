@@ -10,7 +10,7 @@ if ($_POST) {/*Si es postback*/
     if ($nombre != "" && $clave != "") {
         header("location:acceso-confirmado.php");
     } else {
-        $mensaje = "Válido solo para mensajes registrados";
+         $mensaje = "Válido solo para mensajes registrados";
     }
 }
 
