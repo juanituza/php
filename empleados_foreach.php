@@ -57,15 +57,19 @@ function calcularNeto($bruto)
                             <th>Sueldo</th>
                         </tr>
                     </thead>
-
+    
                     <tbody>
                         <?php
-                            for ($i=0; $i < count($aEmpleados) ; $i++) { 
+                            foreach ($aEmpleados as $empleado) {
+                                # code...
+                            }{ 
                         ?>  
                                 <tr>
-                                    <td><?php echo $aEmpleados[$i]['DNI']?></td>
-                                    <td><?php echo mb_strtoupper( $aEmpleados[$i]['nombre'])?></td>
-                                    <td><?php echo number_format(CalcularNeto( $aEmpleados[$i]['bruto']), 2, )?></td>
+                                    <td><?php echo $aEmpleado['DNI']?></td>
+                                    <td><?php echo mb_strtoupper( $empleado['nombre']); ?></td>
+                                    <td><?php $importe= CalcularNeto( $ampleado['bruto']);
+                                    echo number_format($importe, 2, ",","." );?>
+                                    </td>
                                 </tr>
                         <?php
                             }
