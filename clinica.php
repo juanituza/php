@@ -63,7 +63,7 @@ $aPacientes[] = array(
                         </tr>
                     </thead>
                     <tbody>
-                        <?php foreach ($aPacientes as $paciente) { ?>
+                        <?php foreach ($aPacientes as $paciente) :?>
                             <tr>
                                 <td><?php echo $paciente["dni"];  ?></td>
                                 <td><?php echo $paciente["nombre"];  ?></td>
@@ -72,9 +72,7 @@ $aPacientes[] = array(
 
                             </tr>
 
-                        <?php
-                        }
-                        ?>
+                        <?php endforeach ?>
                     </tbody>
                 </table>
             </div>
