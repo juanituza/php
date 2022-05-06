@@ -4,33 +4,33 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
+session_start();
 if (!isset($_SESSION["listadoClientes"])) {
     $_SESSION["listadoClientes"] = array();
 }
 
 if ($_POST) {
-    
-    $nombre = $_POST["txtNombre"];
-    $dni = $_POST["txtDni"];
-    $edad = $_POST["txtEdad"];
-    $telefono = $_POST["txtTelefono"];
-
-
     if (isset($_POST["btnGuardar"])) {
-    $cliente = array(
-        'nombre' => $nombre,
-        'dni' => $dni,
-        'edad' => $edad,
-        'telefono' => $telefono
-    );
-   
-    $_SESSION["listadoClientes"][] = $cliente;
-  
-    }
-    else if (isset($_POST["btnEliminar"])) {
+
+        $nombre = $_POST["txtNombre"];
+        $dni = $_POST["txtDni"];
+        $edad = $_POST["txtEdad"];
+        $telefono = $_POST["txtTelefono"];
+
+
+
+
+
+        $_SESSION["listadoClientes"][] =
+            $cliente = array(
+                'nombre' => $nombre,
+                'dni' => $dni,
+                'edad' => $edad,
+                'telefono' => $telefono
+            );
+    } else if (isset($_POST["btnEliminar"])) {
         session_destroy();
         header("location: clientes_session.php");
-        
     }
 }
 
@@ -59,31 +59,31 @@ if ($_POST) {
 
         <div class="row">
             <div class="col-12 py-5 text-center">
-                <h1>Formulario datos personales</h1>
+                <h1 class="shadow">Datos personales</h1>
             </div>
         </div>
         <div class="row">
             <div class=" col-sm-5">
                 <form action="clientes_session.php" method="POST">
                     <div>
-                        <label for="txtNombre">Nombre:*</label>
-                        <input type="text" name="txtNombre" id="txtNombre" class="form-control" required>
+                        <label for="txtNombre">Nombre:</label>
+                        <input type="text" name="txtNombre" id="txtNombre" class="form-control shadow my-2" placeholder="Ingrese el nombre">
                     </div>
                     <div>
-                        <label for="txtDni">DNI:*</label>
-                        <input type="text" name="txtDni" id="txtDni" class="form-control" required>
+                        <label for="txtDni">DNI:</label>
+                        <input type="text" name="txtDni" id="txtDni" class="form-control shadow my-2" placeholder="DNI">
                     </div>
                     <div>
-                        <label for="edad">Edad:*</label>
-                        <input type="number" name="txtEdad" id="txtEdad" class="form-control" required>
+                        <label for="edad">Edad:</label>
+                        <input type="number" name="txtEdad" id="txtEdad" class="form-control shadow my-2" placeholder="EDAD">
                     </div>
                     <div>
-                        <label for="txtTelefono">Télefono:*</label>
-                        <input type="tel" name="txtTelefono" id="txtTelefono" class="form-control" required>
+                        <label for="txtTelefono">Télefono:</label>
+                        <input type="tel" name="txtTelefono" id="txtTelefono" class="form-control shadow my-2" placeholder="Teléfono">
                     </div>
                     <div class="py-3">
-                        <button type="submit" name="btnGuardar" class="btn btn-primary">GUARDAR</button>
-                        <button type="submit" name="btnEliminar" class="btn bg-danger">ELIMINAR</button>
+                        <button type="submit" name="btnGuardar" class="btn btn-primary m-1">GUARDAR</button>
+                        <button type="submit" name="btnEliminar" class="btn bg-danger text-white m-1">ELIMINAR</button>
                     </div>
 
                 </form>
@@ -91,13 +91,13 @@ if ($_POST) {
 
 
             <div class="col-7 text-center  pb-sm-5">
-                <h2>DATOS</h2>
+
 
 
 
                 <div class="text-center">
 
-                    <table class="table table-hover border">
+                    <table class="table table-hover border shadow">
                         <thead>
                             <tr>
                                 <th>NOMBRE</th>
@@ -117,7 +117,7 @@ if ($_POST) {
 
 
                                 </tr>
-                            <?php endforeach ?>
+                            <?php endforeach; ?>
 
                         </tbody>
 
