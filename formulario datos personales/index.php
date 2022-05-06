@@ -32,7 +32,7 @@
                     </div>
                     <div>
                         <label for="edad">Edad:*</label>
-                        <input type="number" name="edad" id="edad" class="form-control" required>
+                        <input type="number" name="txtEdad" id="txtEdad" class="form-control" required>
                     </div>
                     <div>
                         <label for="txtTelefono">Télefono:*</label>

@@ -3,11 +3,13 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
+
+
 if ($_POST) {
 
     $nombre = $_REQUEST["txtNombre"];
     $dni = $_REQUEST["txtDni"];
-    $edad = $_REQUEST["edad"];
+    $edad = $_REQUEST["txtEdad"];
     $telefono = $_REQUEST["txtTelefono"];
 }
 
