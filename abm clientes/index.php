@@ -1,3 +1,41 @@
+<?php
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
+
+
+if (file_exists('archivo.txt')) {
+    //si el archivo existe, cargo los datos en la variable aClientes
+    $strJson = file_get_contents("archivo.txt");
+    $aClientes = json_decode($strJson, true);
+} else {
+    //si el archivo no existe es porque no hay clientes
+    $aClientes = array();
+}
+
+if ($_POST) {
+    $dni = $_POST["txtDni"];
+    $nombre = $_POST["txtNombre"];
+    $telefono = $_POST["txtTelefono"];
+    $correo = $_POST["txtCorreo"];
+
+    $aClientes = array();
+    $aClientes[] = array(
+        'dni' => $dni,
+        'nombre' => $nombre,
+        'telefono' => $telefono,
+        'correo' => $correo
+    );
+    //convertir el array aClientes en json
+    $strJson = json_encode($aClientes);
+    //almacenar el json en un archivo.txt
+    file_put_contents("archivo.txt", $strJson);
+}
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -36,7 +74,7 @@
                     </div>
                     <div>
                         <label for="edad">Correo:</label>
-                        <input type="mail" name="txtEdad" id="txtEdad" class="form-control shadow my-2" placeholder="ejemplo@mail.com">
+                        <input type="mail" name="txtCorreo" id="txtCorreo" class="form-control shadow my-2" placeholder="ejemplo@mail.com">
                     </div>
                     <div>
                         <label for="archivo">Adjuntar archivo:</label>
@@ -46,7 +84,7 @@
 
                     <div class="py-3">
                         <button type="submit" name="btnGuardar" class="btn btn-primary m-1">GUARDAR</button>
-                        <button type="submit" name="btnEliminar" class="btn bg-danger text-white m-1">ELIMINAR</button>
+                        <button type="submit" name="btnNuevo" class="btn bg-danger text-white m-1">NUEVO</button>
                     </div>
 
                 </form>
@@ -56,15 +94,30 @@
                     <table class="table table-hover border shadow">
                         <thead>
                             <tr>
+
                                 <th>IMAGEN</th>
                                 <th>DNI</th>
                                 <th>NOMBRE</th>
                                 <th>TELEFONO</th>
                                 <th>CORREO</th>
                                 <th>ACCIONES</th>
+
                             </tr>
                         </thead>
                         <tbody>
+                            <?php foreach ($aClientes as $cliente) : ?>
+                                <tr>
+                                    <td></td>
+                                    <td><?php echo $cliente['dni']; ?></td>
+                                    <td><?php echo $cliente['nombre']; ?></td>
+                                    <td><?php echo $cliente['telefono']; ?></td>
+                                    <td><?php echo $cliente['correo']; ?></td>
+                                    <td></td>
+
+
+
+                                </tr>
+                            <?php endforeach; ?>
                         </tbody>
                     </table>
                 </div>
