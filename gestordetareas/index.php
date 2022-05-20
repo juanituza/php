@@ -3,8 +3,9 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
-setlocale(LC_TIME, 'es_MX');
-$fecha= strftime("%a/%d/%B/%Y");
+//setlocale(LC_TIME, 'es_ES');
+
+$fecha = date("d/m/Y");
 
 
 if (file_exists('archivo.txt')) {
@@ -90,44 +91,51 @@ if ($_POST) {
         <div class="row">
             <div class="col-12">
                 <form action="" method="POST">
-                    <div class="py-1">
-                        <label for="txtTitulo">Título</label>
-                        <input type="text" name="txtTitulo" id="txtTitulo" class="form-control shadow" value="<?php echo isset($aTareas[$id]["titulo"]) ? $aTareas[$id]["titulo"] : ""; ?>">
-                    </div>
-                    <div class=" py-1">
-                        <label for="lstPrioridad">Prioridad</label>
-                        <select name="lstPrioridad" id="lstPrioridad" class="form-control shadow" value="<?php echo isset($aTareas[$id]["prioridad"]) ? $aTareas[$id]["prioridad"] : ""; ?>">
-                            <option value=" Alta">Alta</option>
-                            <option value="Media">Media</option>
-                            <option value="Baja">Baja</option>
-                        </select>
-                    </div>
-                    <div class="py-1">
-                        <label for="lstEstado">Estado</label>
-                        <select name="lstEstado" id="lstEstado" class="form-control shadow" value="<?php echo isset($aTareas[$id]["estado"]) ? $aTareas[$id]["estado"] : ""; ?>">
-                            <option value=" Sin Asignar">Sin Asignar</option>
-                            <option value="Asignado">Asignado</option>
-                            <option value="En proceso">En proceso</option>
-                            <option value="Terminado">Terminado</option>
-                        </select>
-                    </div>
-                    <div class="py-1">
-                        <label for="lstUsuarios">Usuarios</label>
-                        <select name="lstUsuarios" id="lstUsuarios" class="form-control shadow" value="<?php echo isset($aTareas[$id]["usuario"]) ? $aTareas[$id]["usuario"] : ""; ?>">
-                            <option value="" disabled selected>Selecionar</option>
-                            <option value=" Juan">Juan</option>
-                            <option value="Luciana">Luciana</option>
-                            <option value="Pablo">Pablo</option>
-                        </select>
-                    </div>
-                    <div class="py-3">
-                        <label for="txtDescripcion"> Descripción</label>
-                        <textarea style="resize:none" name="txtDescripcion" id="txtDescripcion" class="form-control shadow" cols="30" rows="10" placeholder="Escribe aquí la descripción" value="<?php echo isset($aTareas[$id]["descripcion"]) ? $aTareas[$id]["descripcion"] : ""; ?>"></textarea>
+                    <div class="row">
 
+                        <div class="col-4  py-1">
+                            <label for="lstPrioridad">Prioridad</label>
+                            <select name="lstPrioridad" id="lstPrioridad" class="form-control shadow" value="<?php echo isset($aTareas[$id]["prioridad"]) ? $aTareas[$id]["prioridad"] : ""; ?>">
+                                <option value=" Alta">Alta</option>
+                                <option value="Media">Media</option>
+                                <option value="Baja">Baja</option>
+                            </select>
+                        </div>
+                        <div class="col-4  py-1">
+                            <label for="lstUsuarios">Usuarios</label>
+                            <select name="lstUsuarios" id="lstUsuarios" class="form-control shadow" value="<?php echo isset($aTareas[$id]["usuario"]) ? $aTareas[$id]["usuario"] : ""; ?>">
+                                <option value="" disabled selected>Selecionar</option>
+                                <option value=" Juan">Juan</option>
+                                <option value="Luciana">Luciana</option>
+                                <option value="Pablo">Pablo</option>
+                            </select>
+                        </div>
+                        <div class="col-4 py-1">
+                            <label for="lstEstado">Estado</label>
+                            <select name="lstEstado" id="lstEstado" class="form-control shadow" value="<?php echo isset($aTareas[$id]["estado"]) ? $aTareas[$id]["estado"] : ""; ?>">
+                                <option value=" Sin Asignar">Sin Asignar</option>
+                                <option value="Asignado">Asignado</option>
+                                <option value="En proceso">En proceso</option>
+                                <option value="Terminado">Terminado</option>
+                            </select>
+                        </div>
                     </div>
-                    <div class=" py-1">
-                        <button type="submit" name="btnEnviar" id="btnEnviar" class="btn btn-primary m-1">ENVIAR</button>
+                    <div class="row">
 
+                        <div class="py-1">
+                            <label for="txtTitulo">Título</label>
+                            <input type="text" name="txtTitulo" id="txtTitulo" class="form-control shadow" value="<?php echo isset($aTareas[$id]["titulo"]) ? $aTareas[$id]["titulo"] : ""; ?>">
+                        </div>
+
+                        <div class="py-3">
+                            <label for="txtDescripcion"> Descripción</label>
+                            <textarea style="resize:none" name="txtDescripcion" id="txtDescripcion" class="form-control shadow" cols="30" rows="3" placeholder="Escribe aquí la descripción" value="<?php echo isset($aTareas[$id]["descripcion"]) ? $aTareas[$id]["descripcion"] : ""; ?>"></textarea>
+
+                        </div>
+                        <div class=" text-center py-1">
+                            <button type="submit" name="btnEnviar" id="btnEnviar" class="btn btn-primary m-1">ENVIAR</button>
+                            <a href="index.php" class="btn btn-danger m-1">NUEVO</a>
+                        </div>
                     </div>
                 </form>
             </div>
@@ -143,6 +151,7 @@ if ($_POST) {
                             <th>Fecha de inserción</th>
                             <th>TÍTULO</th>
                             <th>PRIORIDAD</th>
+                            <th>ESTADO</th>
                             <th>USUARIO</th>
                             <th>ACCIÓN</th>
 
@@ -152,8 +161,9 @@ if ($_POST) {
                         <?php foreach ($aTareas as $pos => $tarea) : ?>
                             <tr>
                                 <td><?php echo $pos; ?></td>
-                                <td><?php echo $fecha;?></td>
+                                <td><?php echo $fecha; ?></td>
                                 <td><?php echo $tarea['titulo']; ?></td>
+                                <td><?php echo $tarea['estado']; ?></td>
                                 <td><?php echo $tarea['prioridad']; ?></td>
                                 <td><?php echo $tarea['usuario']; ?></td>
                                 <td>
