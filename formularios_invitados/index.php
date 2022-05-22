@@ -22,7 +22,8 @@ if ($_POST) {
         if (in_array($dni, $aInvitados) && $codigo == 'verde') {
             $bienvenida = "$dni se encuentra en la lista de invitados";
             $codAcceso = 'Su codigo de acceso es' . " " . rand(1000, 9999);
-        } else // si el dni ingresado se encuentra en la lista y el codigo no es correcto
+        } else 
+        // si el dni ingresado se encuentra en la lista y el codigo no es correcto
         // se mostrara un mensaje de bienvenida y Ud. no es VIP
         if (in_array($dni, $aInvitados) && $codigo != 'verde') {
             $bienvenida = "$dni se encuentra en la lista de invitados";
