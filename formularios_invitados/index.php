@@ -3,7 +3,8 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
-if (file_exists('invitados.txt')) {
+if (file_exists('invitados.txt')) // esta bien explode????
+{
     $aInvitados = explode(',', file_get_contents("invitados.txt"));
 } else {
 
