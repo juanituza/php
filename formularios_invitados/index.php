@@ -60,20 +60,20 @@ if ($_POST) {
                 <h1>Lista de invitados</h1>
             </div>
             <?php if (isset($bienvenida)) : ?>
-                <div class="alert alert-success" role="alert">
+                <div class=" col-4 alert alert-success shadow" role="alert">
                     <?php echo $bienvenida; ?>
                 </div>
             <?php endif; if (isset($error)) : ?>
-                <div class="alert alert-danger" role="alert">
+                <div class="col-4 alert alert-danger shadow" role="alert">
                     <?php echo $error; ?>
                 </div>
             <?php endif; ?>
             <?php if (isset($codAcceso)) : ?>
-                <div class="alert alert-success" role="alert">
+                <div class="col-4 alert alert-success shadow" role="alert">
                     <?php echo $codAcceso; ?>
                 </div>
             <?php endif; if (isset($errorVip)) : ?>
-                <div class="alert alert-danger" role="alert">
+                <div class="col-4 alert alert-danger shadow" role="alert">
                     <?php echo $errorVip;?>
                 </div>
             <?php endif; ?>
