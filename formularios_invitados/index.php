@@ -3,9 +3,9 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
-if (file_exists('invitados.txt')) // esta bien explode???? ya que no es un json el archivo
+if (file_exists('invitados.txt')) 
 {
-    $aInvitados = explode(',', file_get_contents("invitados.txt"));
+    $aInvitados = explode(',', file_get_contents("invitados.txt")); // esta bien explode???? ya que no es un json el archivo
 } else {
 
     $aInvitados = array();
@@ -20,7 +20,7 @@ if ($_POST) {
 
         //Si el dni ingresado se encuentra en la lista y el codigo es correcto
         // se mostrara un mensaje de bienvenida y su codigo de acceso
-        if (in_array($dni, $aInvitados) && $codigo == 'verde') {
+        if (in_array($dni, $aInvitados) && $codigo === 'verde') {
             $bienvenida = "$dni se encuentra en la lista de invitados";
             $codAcceso = 'Su codigo de acceso es' . " " . rand(1000, 9999);
         } else 
@@ -30,7 +30,7 @@ if ($_POST) {
             $bienvenida = "$dni se encuentra en la lista de invitados";
             $errorVip = 'Ud. no es VIP';
         } else {
-            //si no un mensaje de "no se encuentra en la lista de invitados"
+            //si no un mensaje de "no se encuentra en la lista"
             $error = "$dni no se encuentra en la lista";
         }
     }
