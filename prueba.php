@@ -23,12 +23,12 @@
     </div>
 
     <?php
-    function saludar($nombre="Juan" , $apellido="")
+    function saludar($nombre = "Juan", $apellido = "")
     {
         return "Hola $nombre $apellido ";
     }
-    echo saludar("Luciana")."<br>";
-    
+    echo saludar("Luciana") . "<br>";
+
     echo saludar();
 
     ?>
@@ -36,3 +36,4 @@
 </body>
 
 </html>
+
