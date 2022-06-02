@@ -100,11 +100,11 @@ class carrito
         echo "<table  class='table table-hover table-bordered border-dark shadow';
                 <tr>
                 <th class='text-center table-secondary' colspan=2> ECO MARKET</th>
-                </tr>";
+                </tr>
 
-        echo    "<tr>
+                <tr>
                 <th class='table-secondary'>FECHA:</th>
-                <td>". date("d/m/Y H") . "</td>
+                <td>". date("d/m/Y H:i:s") . "</td>
                 </tr>
                 <tr>            
                     <th class='table-secondary'>DNI:</th>
@@ -198,11 +198,11 @@ $carrito1->cargarProducto($producto2);
 
 <body>
     <main class="container">
-        <div class="row mt-5">
-            <div class="col-3 m-2">
+        <div class="row mt-3">
+            <div class="col-6">
                 <?php echo $carrito->imprimirTicket(); ?>
             </div>
-            <div class="col-3 m-2">
+            <div class="col-6">
                 <?php echo $carrito1->imprimirTicket();?>
             </div>
         </div>

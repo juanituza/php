@@ -1,39 +1,50 @@
-<!DOCTYPE html>
-<html lang="en">
+<?php
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+class Persona{
+protected $dni;
+protected $nombre;
+protected $correo;
+protected $celular;
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="estilos.css">
-    <title>Prueba</title>
-</head>
+public function __construct($dni, $nombre, $correo, $celular)
+{
+$this->dni = $dni;
+$this->nombre = $nombre;
+$this->correo = $correo;
+$this->celular = $celular;
+}
+}
+class Entrenador extends Persona
+{
+private $aClases;
 
-<body>
-    <?php echo "Hola mundo </br>";
-    echo  date("d/M/Y");
-    ?>
+public function __construct($dni, $nombre, $correo, $celular)
+{
+parent::__construct($dni, $nombre, $correo, $celular); //constructor de la class Persona
+$this->aClases = array();
+}
 
-    <div class="motion">
-        <div class="circle"></div>
-    </div>
 
-    <div>
-        <p class="element text-element">ho-la </p>
-    </div>
+public function __get($propiedad)
+{
+return $this->$propiedad;
+}
+public function __set($propiedad, $valor)
+{
+$this->$propiedad = $valor;
+}
 
-    <?php
-    function saludar($nombre = "Juan", $apellido = "")
-    {
-        return "Hola $nombre $apellido ";
-    }
-    echo saludar("Luciana") . "<br>";
+public function asignarClase($clase)
+{
+$this->aClases[]=$clase;
+}
+}
 
-    echo saludar();
 
-    ?>
+$entrenador1= new Entrenador();
+$entrenador1=
 
-</body>
 
-</html>
-
+?>
