@@ -1,1 +1,1 @@
-[{"dni":"31729647","nombre":"Juan ignacio","telefono":"01150571913","correo":"juanituza85@gmail.com","imagen":"2022051902052212.jpg"},{"dni":"36630478","nombre":"luciana","telefono":"1149270395","correo":"juanituza85@hotmail.com","imagen":"2022051901054533.png"}]
+[]

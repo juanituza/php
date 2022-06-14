@@ -152,12 +152,12 @@ class Clase
     }
 }
 
-
-//Programa
+ 
+//Programa "31123456", "Juan De los Santos", "juandelos@mail.com", "1191846216", "4-02-1983"
 $entrenador1 = new Entrenador("31789456", "Juan Perez", "juanperez@gmail.com", "1112345678");
 $entrenador2 = new Entrenador("30985469", "Federico Lopez", "fedelo@mail.com", "1132659878");
 
-$alumno1 = new Alumno("31123456", "Juan De los Santos", "juandelos@mail.com", "1191846216", "4-02-1983");
+$alumno1 = new Alumno();
 $alumno1->setFichaMedica(90, 1.80, true);
 $alumno1->presentismo = 80;
 

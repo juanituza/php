@@ -41,12 +41,7 @@ if ($_POST) {
     
 
     if ($_FILES["archivo"]["error"] === UPLOAD_ERR_OK) {
-       // *===> preguntar*
-        /*if (isset($aClientes[$id]["imagen"]) && $aClientes[$id]["imagen"] != "") {
-            if (file_exists("imagenes/" . $aClientes[$id]["imagen"])) {
-                unlink("imagenes/" . $aClientes[$id]["imagen"]);
-            }
-        }*/
+       
         $nombreAleatorio = date("Ymdhmsi");
         $archivo_tpm = $_FILES["archivo"]["tmp_name"];
         $extension = pathinfo($_FILES["archivo"]["name"], PATHINFO_EXTENSION);
@@ -54,15 +49,7 @@ if ($_POST) {
             $nombreImagen = "$nombreAleatorio.$extension";
             move_uploaded_file($archivo_tpm, "imagenes/$nombreImagen");
         }
-    }// *===> preguntar*
-    /*else{
-        //Sino imagen es vacio
-        if ($id >= 0) {
-            $nombreImagen = $aClientes[$id]["imagen"];
-        } else {
-            $nombreImagen = "";
-        }
-    }*/
+    }
     if ($id >= 0) {
         //si no se subió una imagen y estoy editando conservar en $nombreImagen el nombre
         //de la imagen anterior que está asociada al cliente que estamos editando
